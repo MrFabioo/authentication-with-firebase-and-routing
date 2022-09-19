@@ -11,10 +11,6 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  function handleClick() {
-    navigate('/');
-  }
-
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -22,7 +18,7 @@ export default function Login() {
       setError('');
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      handleClick();
+      navigate('/');
     } catch {
       setError('Failed to log in');
     }

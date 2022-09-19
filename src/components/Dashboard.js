@@ -8,15 +8,11 @@ export default function Dashboard() {
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
 
-  function handleClick() {
-    navigate('/login');
-  }
-
   async function handleLogout() {
     setError('');
     try {
       await logout();
-      handleClick();
+      navigate('/login');
     } catch {
       setError('Failed to log out');
     }
